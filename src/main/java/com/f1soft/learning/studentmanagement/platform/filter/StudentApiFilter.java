@@ -4,8 +4,6 @@ import com.f1soft.learning.studentmanagement.exception.StudentApiException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 
 public class StudentApiFilter implements Filter {
@@ -22,7 +20,8 @@ public class StudentApiFilter implements Filter {
             if (secret_key != null && secret_key.equals(key)) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                sendErrorResponse(response, 404, "Unauthorized user");
+                //sendErrorResponse(response, 404, "Unauthorized user");
+                throw new StudentApiException(400, "Unauthorized user");
             }
         } else {
             filterChain.doFilter(servletRequest, servletResponse);

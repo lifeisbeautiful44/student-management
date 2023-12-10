@@ -8,7 +8,6 @@ import com.f1soft.learning.studentmanagement.exception.StudentApiException;
 import com.f1soft.learning.studentmanagement.platform.dbconnection.DataBaseConnection;
 import com.f1soft.learning.studentmanagement.platform.response.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;

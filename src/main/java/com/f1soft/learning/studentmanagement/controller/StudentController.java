@@ -2,16 +2,16 @@ package com.f1soft.learning.studentmanagement.controller;
 
 
 import com.f1soft.learning.studentmanagement.dto.StudentDto;
-import com.f1soft.learning.studentmanagement.dto.SubjectDto;
-import com.f1soft.learning.studentmanagement.entity.Subject;
 import com.f1soft.learning.studentmanagement.platform.response.ApiResponse;
+import com.f1soft.learning.studentmanagement.platform.response.RestClient;
 import com.f1soft.learning.studentmanagement.service.StudentService;
-import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,11 +21,14 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private RestClient restClient;
 
    @PostMapping
-    public ResponseEntity<ApiResponse<String>> saveStudent(@RequestBody  StudentDto studentDto) throws SQLException {
-        System.out.println("entered");
-        ApiResponse<String> apiResponse =   studentService.saveStudent(studentDto);
+    public ResponseEntity<ApiResponse<String>> saveStudent(@RequestBody  StudentDto studentDto) throws SQLException, URISyntaxException, IOException, InterruptedException {
+
+       restClient.callRestClient(studentDto);
+       ApiResponse<String> apiResponse =   studentService.saveStudent(studentDto);
       return new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
 
@@ -34,6 +37,9 @@ public class StudentController {
         ApiResponse<List<String>> apiResponse =  studentService.findStudentWithSubjects(studentId);
         return new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
+
+
+
 
 
 }

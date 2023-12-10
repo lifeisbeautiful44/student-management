@@ -1,9 +1,6 @@
 package com.f1soft.learning.studentmanagement.service;
 
 import com.f1soft.learning.studentmanagement.dto.StudentDto;
-import com.f1soft.learning.studentmanagement.dto.SubjectDto;
-import com.f1soft.learning.studentmanagement.entity.Subject;
-import com.f1soft.learning.studentmanagement.platform.dbconnection.DataBaseConnection;
 import com.f1soft.learning.studentmanagement.platform.response.ApiResponse;
 
 import java.sql.SQLException;

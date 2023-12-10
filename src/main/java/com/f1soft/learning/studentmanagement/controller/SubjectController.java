@@ -3,7 +3,6 @@ package com.f1soft.learning.studentmanagement.controller;
 
 import com.f1soft.learning.studentmanagement.dto.SubjectDto;
 import com.f1soft.learning.studentmanagement.platform.response.ApiResponse;
-import com.f1soft.learning.studentmanagement.service.StudentService;
 import com.f1soft.learning.studentmanagement.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +18,11 @@ import java.sql.SQLException;
 @RequestMapping("/api/v1/subject")
 public class SubjectController {
     @Autowired
-    private SubjectService subjectSerivce;
+    private SubjectService subjectService;
     @PostMapping
     public ResponseEntity<ApiResponse<String>> saveSubject(@RequestBody  SubjectDto subjectDto) throws SQLException {
 
-       ApiResponse apiResponse =  subjectSerivce.saveSubject(subjectDto);
+       ApiResponse apiResponse =  subjectService.saveSubject(subjectDto);
        return new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
 }

@@ -1,6 +1,5 @@
 package com.f1soft.learning.studentmanagement.platform.dbconnection;
 
-import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +12,6 @@ public class DataBaseConnection {
     private String url = "jdbc:mysql://localhost:3306/student_management";
     private String userName = "root";
     private String password = "#f1soft44";
-
     private static Connection con;
 
     private DataBaseConnection()  {

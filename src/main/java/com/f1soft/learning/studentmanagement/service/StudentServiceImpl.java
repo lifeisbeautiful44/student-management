@@ -1,11 +1,8 @@
 package com.f1soft.learning.studentmanagement.service;
 
 import com.f1soft.learning.studentmanagement.converter.StudentMapper;
-import com.f1soft.learning.studentmanagement.converter.SubjectMapper;
 import com.f1soft.learning.studentmanagement.dto.StudentDto;
-import com.f1soft.learning.studentmanagement.dto.SubjectDto;
 import com.f1soft.learning.studentmanagement.entity.Student;
-import com.f1soft.learning.studentmanagement.entity.Subject;
 import com.f1soft.learning.studentmanagement.exception.StudentApiException;
 import com.f1soft.learning.studentmanagement.platform.dbconnection.DataBaseConnection;
 import com.f1soft.learning.studentmanagement.platform.response.ApiResponse;
